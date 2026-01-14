@@ -12,10 +12,20 @@ interface Props {
 
 const InvitationCard: React.FC<Props> = ({ details, onRSVP, guestCount, onViewGuestBook }) => {
   return (
-    <div className="relative w-full h-full mx-auto flex flex-col justify-between sm:justify-center items-center text-ink px-2 md:px-4 lg:px-6">
+    <div 
+      className="relative w-full h-full mx-auto flex flex-col justify-between sm:justify-center items-center text-ink px-2 md:px-4 lg:px-6"
+      style={{
+        backgroundImage: 'url(/image/background.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* White overlay to reduce background visibility */}
+      <div className="absolute inset-0 bg-white/60 pointer-events-none z-0"></div>
       
       {/* Container for SVG Overlay - constrained to relative parent */}
-      <div className="absolute inset-0 overflow-visible pointer-events-none">
+      <div className="absolute inset-0 overflow-visible pointer-events-none z-[5]">
          <PlaneTrail />
       </div>
 
