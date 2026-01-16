@@ -28,7 +28,7 @@ const App: React.FC = () => {
   const fetchGuestCount = async () => {
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwDIw5Nz6uRTx7vMF2oVX5INlZFYzQ42SO9dR7H6NehgoJfvouRI0kz8CYRE0suyytZ/exec",
+        "https://script.google.com/macros/s/AKfycby6ov1J0fxQKvY_3ZuR0Q_Ir50MGpEXddEwfCDQcQby97C79icb3zI3q5vDzJAImcLBeg/exec",
         { cache: "no-store" }
       );
       if (response.ok) {

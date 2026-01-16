@@ -2,7 +2,7 @@ import type React from "react";
 import { Helmet } from "react-helmet-async";
 import { siteConfig } from "@/content/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://christian-and-geneva-save-the-date.vercel.app/";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ltryl-and-noenyl-save-the-date.vercel.app/";
 const canonicalUrl = siteUrl.replace(/\/$/, "");
 
 const desktopHero = "/image/linkPreview.jpg";

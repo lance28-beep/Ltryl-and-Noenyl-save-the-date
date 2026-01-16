@@ -47,7 +47,7 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSe00CoRNGeGqX6cRJGU7R1NPE8Rl0skhwgtlg8NGyMLl2GkAA/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSdWvFGLmzqPBu1YjoH95D7e4_AVPXsZQhAYJ80HhRjFiI541g/formResponse",
         {
           method: "POST",
           mode: "no-cors",
