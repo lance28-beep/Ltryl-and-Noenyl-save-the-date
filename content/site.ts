@@ -1,22 +1,22 @@
 export const siteConfig = {
   couple: {
-    groomNickname: "Christian",
-    brideNickname: "Geneva",
-    groomFullName: "Christian",
-    brideFullName: "Geneva",
+    groomNickname: "Ltryl",
+    brideNickname: "Noenyl",
+    groomFullName: "Ltryl Benitez",
+    brideFullName: "Noenyl Bryle Gonzaga",
   },
   wedding: {
-    date: "March 2027",
-    dateISO: "2027-03-06T14:30:00+08:00",
-    endDateISO: "2027-03-06T22:00:00+08:00",
+    date: "May 18, 2026\nMonday",
+    dateISO: "2026-05-18T14:30:00+08:00",
+    endDateISO: "2026-05-18T22:00:00+08:00",
   },
   ceremony: {
-    venue: "Palawan, Philippines",
-    location: "Palawan, Philippines",
+    venue: "Farm Hills Garden",
+    location: "Silang, Cavite",
   },
   reception: {
-    venue: "Palawan, Philippines",
-    location: "Palawan, Philippines",
+    venue: "Farm Hills Garden",
+    location: "Silang, Cavite",
   },
 } as const;
 

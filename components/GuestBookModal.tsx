@@ -123,18 +123,18 @@ const GuestBookModal: React.FC<Props> = ({ isOpen, onClose }) => {
     <div className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
       
-      <div className={`relative bg-paper w-full max-w-2xl h-[80vh] flex flex-col rounded-2xl sm:rounded-3xl shadow-2xl border border-white/50 transform transition-all duration-500 overflow-hidden ${isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-10 scale-95 opacity-0'}`}>
+      <div className={`relative w-full max-w-2xl h-[80vh] flex flex-col rounded-2xl sm:rounded-3xl shadow-2xl border border-white/50 transform transition-all duration-500 overflow-hidden ${isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-10 scale-95 opacity-0'}`} style={{ backgroundColor: '#F5F7EC' }}>
         {/* Header */}
-        <div className="p-3 sm:p-4 md:p-6 border-b border-gray-200/80 text-center relative bg-gradient-to-b from-paper via-paper to-paper/95">
+        <div className="p-3 sm:p-4 md:p-6 border-b text-center relative" style={{ borderColor: 'rgba(229, 231, 235, 0.8)', background: 'linear-gradient(to bottom, #F5F7EC, rgba(245, 247, 236, 0.95))' }}>
           {/* Guest Count - Top Left - Special Design */}
           {!isLoading && !error && guests.length > 0 && (
             <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 z-10">
               <div className="relative group/count">
-                <div className="absolute inset-0 bg-gold/20 blur-md rounded-full opacity-60 group-hover/count:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-gradient-to-br from-gold/15 via-gold/10 to-taupe/20 backdrop-blur-sm border border-gold/30 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm group-hover/count:shadow-md group-hover/count:border-gold/50 transition-all duration-300 group-hover/count:scale-105">
+                <div className="absolute inset-0 blur-md rounded-full opacity-60 group-hover/count:opacity-100 transition-opacity duration-300" style={{ backgroundColor: 'rgba(118, 136, 112, 0.2)' }}></div>
+                <div className="relative backdrop-blur-sm border rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-sm group-hover/count:shadow-md transition-all duration-300 group-hover/count:scale-105" style={{ background: 'linear-gradient(to bottom right, rgba(118, 136, 112, 0.15), rgba(118, 136, 112, 0.1), rgba(118, 136, 112, 0.2))', borderColor: 'rgba(118, 136, 112, 0.3)' }}>
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold flex-shrink-0" />
-                    <span className="text-gold font-serif text-base sm:text-lg md:text-xl font-bold tracking-tight">
+                    <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" style={{ color: '#768870' }} />
+                    <span className="font-serif text-base sm:text-lg md:text-xl font-bold tracking-tight" style={{ color: '#768870' }}>
                       {totalGuests}
                     </span>
                   </div>
@@ -145,25 +145,41 @@ const GuestBookModal: React.FC<Props> = ({ isOpen, onClose }) => {
           
           <button 
             onClick={onClose}
-            className="absolute top-2 right-2 sm:top-4 sm:right-4 md:top-6 md:right-6 text-gray-400 hover:text-gold hover:bg-gold/10 rounded-full p-1.5 transition-all duration-300 z-10 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-paper group/close"
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 md:top-6 md:right-6 rounded-full p-1.5 transition-all duration-300 z-10 focus:outline-none focus:ring-2 focus:ring-offset-2 group/close"
+            style={{ color: 'rgba(156, 163, 175, 1)' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#768870';
+              e.currentTarget.style.backgroundColor = 'rgba(118, 136, 112, 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'rgba(156, 163, 175, 1)';
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.outline = '2px solid #768870';
+              e.currentTarget.style.outlineOffset = '2px';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.outline = 'none';
+            }}
             aria-label="Close guest book"
           >
             <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover/close:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
           
-          <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-gold mb-2 sm:mb-3 group/header">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 group/header" style={{ color: '#768870' }}>
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 transition-all duration-500 group-hover/header:scale-110 group-hover/header:rotate-12" />
             <span className="font-serif uppercase tracking-widest text-[10px] sm:text-xs transition-colors duration-300">Guest Registry</span>
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 transition-all duration-500 group-hover/header:scale-110 group-hover/header:-rotate-12" />
           </div>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl text-ink transition-all duration-300 hover:text-ink/90">Book of Guests</h2>
-          <p className="font-body text-gray-500 mt-1 sm:mt-2 text-xs sm:text-sm md:text-base transition-colors duration-300">See who's celebrating with us</p>
+          <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl transition-all duration-300" style={{ color: '#768870' }}>Book of Guests</h2>
+          <p className="font-body mt-1 sm:mt-2 text-xs sm:text-sm md:text-base transition-colors duration-300" style={{ color: 'rgba(107, 114, 128, 1)' }}>See who's celebrating with us</p>
         </div>
 
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-8 custom-scrollbar">
             {isLoading ? (
-                <div className="flex flex-col items-center justify-center h-full gap-4 sm:gap-5 text-gold animate-fade-in-up">
+                <div className="flex flex-col items-center justify-center h-full gap-4 sm:gap-5 animate-fade-in-up" style={{ color: '#768870' }}>
                    <Loader2 className="w-8 h-8 sm:w-10 sm:h-10 animate-spin drop-shadow-sm" />
                    <span className="font-serif tracking-widest text-xs sm:text-sm animate-pulse">Loading guests...</span>
                 </div>
@@ -193,12 +209,12 @@ const GuestBookModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                 style={{ animationDelay: `${idx * 0.03}s` }}
                             >
                                 {/* Premium accent line */}
-                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-gold/60 via-gold/40 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                                <div className="absolute left-0 top-0 bottom-0 w-1 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" style={{ background: 'linear-gradient(to bottom, rgba(118, 136, 112, 0.6), rgba(118, 136, 112, 0.4), transparent)' }}></div>
                                 
                                 <div className="flex items-start gap-2.5 sm:gap-3">
                                     {/* Avatar */}
                                     <div className="flex-shrink-0 relative">
-                                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-gold/20 via-taupe/30 to-taupe/20 text-ink font-serif font-semibold flex items-center justify-center text-xs sm:text-sm border-2 border-white shadow-sm ring-1 ring-gray-100/50 transition-all duration-300 group-hover/card:scale-105 group-hover/card:ring-gold/30 group-hover/card:shadow-md group-hover/card:from-gold/30 group-hover/card:via-taupe/40 group-hover/card:to-taupe/30">
+                                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full font-serif font-semibold flex items-center justify-center text-xs sm:text-sm border-2 border-white shadow-sm ring-1 transition-all duration-300 group-hover/card:scale-105 group-hover/card:shadow-md" style={{ background: 'linear-gradient(to bottom right, rgba(118, 136, 112, 0.2), rgba(118, 136, 112, 0.3), rgba(118, 136, 112, 0.2))', color: '#768870', ringColor: 'rgba(229, 231, 235, 0.5)' }}>
                                             {getInitials(guest.name)}
                                         </div>
                                     </div>
@@ -207,10 +223,10 @@ const GuestBookModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                     <div className="flex-grow min-w-0 flex-1">
                                         {/* Name and Guest Count Row */}
                                         <div className="flex items-center justify-between gap-2 mb-1">
-                                            <h4 className="font-serif text-sm sm:text-base font-semibold text-ink truncate transition-colors duration-300 group-hover/card:text-ink/90">
+                                            <h4 className="font-serif text-sm sm:text-base font-semibold truncate transition-colors duration-300" style={{ color: '#768870' }}>
                                                 {guest.name}
                                             </h4>
-                                            <span className="flex-shrink-0 bg-gold/10 text-gold text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full border border-gold/20 transition-all duration-300 group-hover/card:bg-gold/15 group-hover/card:border-gold/30 group-hover/card:scale-105">
+                                            <span className="flex-shrink-0 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full border transition-all duration-300 group-hover/card:scale-105" style={{ backgroundColor: 'rgba(118, 136, 112, 0.1)', color: '#768870', borderColor: 'rgba(118, 136, 112, 0.2)' }}>
                                                 {guest.guests}
                                             </span>
                                         </div>
@@ -229,11 +245,11 @@ const GuestBookModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                         
                                         {/* Message */}
                                         {guest.message && (
-                                            <div className="mt-2 pt-2 border-t border-gray-200/80">
+                                            <div className="mt-2 pt-2 border-t" style={{ borderColor: 'rgba(229, 231, 235, 0.8)' }}>
                                                 <div className="flex items-start gap-2">
-                                                    <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold/60 mt-0.5 flex-shrink-0" />
+                                                    <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" style={{ color: 'rgba(118, 136, 112, 0.6)' }} />
                                                     <div className="flex-1 min-w-0">
-                                                        <p className="text-xs sm:text-sm font-body text-gray-700 leading-relaxed whitespace-pre-wrap break-words">
+                                                        <p className="text-xs sm:text-sm font-body leading-relaxed whitespace-pre-wrap break-words" style={{ color: 'rgba(55, 65, 81, 1)' }}>
                                                             {guest.message}
                                                         </p>
                                                     </div>

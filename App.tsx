@@ -5,14 +5,15 @@ import LoadingList from './components/LoadingList';
 import RSVPModal from './components/RSVPModal';
 import GuestBookModal from './components/GuestBookModal';
 import BackgroundMusic from './components/BackgroundMusic';
+import SpecialMessage from './components/SpecialMessage';
 import Layout from './components/Layout';
 import { InvitationDetails } from './types';
 
 const details: InvitationDetails = {
-  groom: "Christian",
-  bride: "Geneva",
-  date: "March 2027",
-  location: "Palawan, Philippines",
+  groom: "Ltryl",
+  bride: "Noenyl",
+  date: "May 18, 2026\nMonday",
+  location: "Farm Hills Garden, Silang, Cavite",
   rsvpContact: "0426572257 | 0491174764"
 };
 
@@ -20,6 +21,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [showRSVP, setShowRSVP] = useState(false);
   const [showGuestBook, setShowGuestBook] = useState(false);
+  const [showSpecialMessage, setShowSpecialMessage] = useState(false);
   const [guestCount, setGuestCount] = useState<number | null>(null);
 
   // Fetch guest count for the "countdown/counter" on the main card
@@ -62,7 +64,10 @@ const App: React.FC = () => {
   return (
     <Layout>
       {/* h-[100dvh] ensures it fits the dynamic viewport height on mobile browsers, eliminating scroll */}
-      <div className="relative w-full h-[100dvh] bg-paper overflow-hidden selection:bg-gold selection:text-white flex flex-col items-center justify-center">
+      <div 
+        className="relative w-full h-[100dvh] overflow-hidden selection:bg-gold selection:text-white flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/image/background.jpg)' }}
+      >
       {/* Visual noise/grain overlay for paper texture effect */}
       <div className="noise-overlay"></div>
       
@@ -70,24 +75,24 @@ const App: React.FC = () => {
         <LoadingList onComplete={() => setLoading(false)} />
       ) : (
         <>
-          {/* Background Map - Philippines */}
-          {/* On Desktop: We position it more intentionally to ensure it's visible around the card */}
-          <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
+          {/* Background Map - Philippines - Hidden when using background image */}
+          {/* <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
              <WorldMap className="w-full h-full opacity-100 text-[#d6cfc2] scale-100 md:scale-90" />
-          </div>
+          </div> */}
 
           {/* Main Container */}
-          <main className="relative z-10 w-full h-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-12 lg:p-24">
+          <main className="relative z-10 w-full h-full flex flex-col justify-center items-center p-2 sm:p-4 md:p-6 lg:p-8">
             {/* Card Container:
                 - Mobile: Standard sizing
                 - Desktop: Wider max-width, slightly more padding to let the design breathe
             */}
-            <div className="w-full max-w-lg md:max-w-2xl lg:max-w-4xl bg-white/40 backdrop-blur-md shadow-xl shadow-stone-200/50 rounded-xl p-4 sm:p-12 md:p-16 border border-white/50 transition-all duration-1000 animate-fade-in-up flex flex-col items-center justify-center min-h-[500px] md:min-h-[700px]">
+            <div className="w-full max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl bg-white/40 backdrop-blur-md shadow-xl shadow-stone-200/50 rounded-xl p-4 sm:p-12 md:p-16 lg:p-20 border border-white/50 transition-all duration-1000 animate-fade-in-up flex flex-col items-center justify-center min-h-[500px] md:min-h-[700px] lg:min-h-[800px]">
                <InvitationCard 
                  details={details} 
                  onRSVP={() => setShowRSVP(true)} 
                  guestCount={guestCount}
                  onViewGuestBook={() => {}}
+                 onViewSpecialMessage={() => setShowSpecialMessage(true)}
                />
             </div>
           </main>
@@ -99,6 +104,17 @@ const App: React.FC = () => {
           {/* Modals Layer */}
           <RSVPModal isOpen={showRSVP} onClose={() => setShowRSVP(false)} />
           <GuestBookModal isOpen={showGuestBook} onClose={() => setShowGuestBook(false)} />
+          <SpecialMessage 
+            visible={showSpecialMessage} 
+            onClose={() => setShowSpecialMessage(false)}
+            onRSVP={() => {
+              setShowRSVP(true);
+            }}
+            guestCount={guestCount}
+            onViewGuestBook={() => {
+              setShowGuestBook(true);
+            }}
+          />
           
           {/* Background Music */}
           <BackgroundMusic />

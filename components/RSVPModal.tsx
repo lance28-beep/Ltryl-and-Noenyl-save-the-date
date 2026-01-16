@@ -85,13 +85,16 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
       />
       
       {/* Modal Content */}
-      <div className={`relative bg-paper w-full max-w-md rounded-lg shadow-2xl p-4 sm:p-6 md:p-10 border border-white/50 transform transition-all duration-500 ${isOpen ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'}`}>
+      <div className={`relative w-full max-w-md rounded-lg shadow-2xl p-4 sm:p-6 md:p-10 border border-white/50 transform transition-all duration-500 ${isOpen ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'}`} style={{ backgroundColor: '#F5F7EC' }}>
         {/* Decorative corner texture */}
-        <div className="absolute top-0 right-0 w-12 h-12 sm:w-20 sm:h-20 bg-gradient-to-bl from-gold/10 to-transparent rounded-tr-lg pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-12 h-12 sm:w-20 sm:h-20 bg-gradient-to-bl rounded-tr-lg pointer-events-none" style={{ background: 'linear-gradient(to bottom left, rgba(118, 136, 112, 0.1), transparent)' }}></div>
 
         <button 
           onClick={handleClose}
-          className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-400 hover:text-gold transition-colors z-10"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 transition-colors z-10"
+          style={{ color: 'rgba(156, 163, 175, 1)' }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#768870'}
+          onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(156, 163, 175, 1)'}
           aria-label="Close modal"
         >
           <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -100,56 +103,76 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
         {step === 'form' ? (
           <div className="animate-fade-in-up" style={{ animationDuration: '0.5s' }}>
             <div className="text-center mb-4 sm:mb-6 md:mb-8">
-              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl text-ink mb-1 sm:mb-2">You're Invited!</h2>
-              <p className="font-body text-gray-600 italic text-sm sm:text-base md:text-lg">Hello you are invited to our wedding!</p>
+              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2" style={{ color: '#768870' }}>You're Invited!</h2>
+              <p className="font-body italic text-sm sm:text-base md:text-lg" style={{ color: 'rgba(75, 85, 99, 1)' }}>Hello you are invited to our wedding!</p>
             </div>
 
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-5">
               <div className="group">
-                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mb-0.5 sm:mb-1 transition-colors group-focus-within:text-gold">Full Name *</label>
+                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest mb-0.5 sm:mb-1 transition-colors" style={{ color: 'rgba(107, 114, 128, 1)' }}>
+                  <span className="group-focus-within:text-[#768870]">Full Name *</span>
+                </label>
                 <input 
                   required
                   name="name"
                   type="text" 
                   placeholder="Enter your full name"
-                  className="w-full bg-stone-50/50 border-b border-gray-300 py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl placeholder:text-gray-300 focus:outline-none focus:border-gold focus:bg-white transition-all"
+                  className="w-full bg-stone-50/50 border-b py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl placeholder:text-gray-300 focus:outline-none focus:bg-white transition-all"
+                  style={{ borderColor: 'rgba(209, 213, 219, 1)' }}
+                  onFocus={(e) => e.currentTarget.style.borderColor = '#768870'}
+                  onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(209, 213, 219, 1)'}
                 />
               </div>
 
               <div className="group">
-                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mb-0.5 sm:mb-1 transition-colors group-focus-within:text-gold">Email Address *</label>
+                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest mb-0.5 sm:mb-1 transition-colors" style={{ color: 'rgba(107, 114, 128, 1)' }}>
+                  <span className="group-focus-within:text-[#768870]">Email Address *</span>
+                </label>
                 <input 
                   required
                   name="email"
                   type="email" 
                   placeholder="Enter your email address"
-                  className="w-full bg-stone-50/50 border-b border-gray-300 py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl placeholder:text-gray-300 focus:outline-none focus:border-gold focus:bg-white transition-all"
+                  className="w-full bg-stone-50/50 border-b py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl placeholder:text-gray-300 focus:outline-none focus:bg-white transition-all"
+                  style={{ borderColor: 'rgba(209, 213, 219, 1)' }}
+                  onFocus={(e) => e.currentTarget.style.borderColor = '#768870'}
+                  onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(209, 213, 219, 1)'}
                 />
               </div>
 
                <div className="group">
-                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mb-0.5 sm:mb-1 transition-colors group-focus-within:text-gold">Number of Guests *</label>
+                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest mb-0.5 sm:mb-1 transition-colors" style={{ color: 'rgba(107, 114, 128, 1)' }}>
+                  <span className="group-focus-within:text-[#768870]">Number of Guests *</span>
+                </label>
                 <div className="relative">
                   <select 
                     required
                     name="guests"
-                    className="w-full bg-stone-50/50 border-b border-gray-300 py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl focus:outline-none focus:border-gold focus:bg-white transition-all appearance-none cursor-pointer"
+                    className="w-full bg-stone-50/50 border-b py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl focus:outline-none focus:bg-white transition-all appearance-none cursor-pointer"
+                    style={{ borderColor: 'rgba(209, 213, 219, 1)' }}
+                    onFocus={(e) => e.currentTarget.style.borderColor = '#768870'}
+                    onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(209, 213, 219, 1)'}
                   >
                     {[1, 2, 3, 4, 5].map(n => <option key={n} value={n}>{n} {n === 1 ? 'Guest' : 'Guests'}</option>)}
                   </select>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(156, 163, 175, 1)' }}>
                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </div>
               </div>
 
               <div className="group">
-                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mb-0.5 sm:mb-1 transition-colors group-focus-within:text-gold">Message (Optional)</label>
+                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest mb-0.5 sm:mb-1 transition-colors" style={{ color: 'rgba(107, 114, 128, 1)' }}>
+                  <span className="group-focus-within:text-[#768870]">Message (Optional)</span>
+                </label>
                 <textarea 
                   name="message"
                   placeholder="Share Your Excitement"
                   rows={2}
-                  className="w-full bg-stone-50/50 border-b border-gray-300 py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl placeholder:text-gray-300 focus:outline-none focus:border-gold focus:bg-white transition-all resize-none"
+                  className="w-full bg-stone-50/50 border-b py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl placeholder:text-gray-300 focus:outline-none focus:bg-white transition-all resize-none"
+                  style={{ borderColor: 'rgba(209, 213, 219, 1)' }}
+                  onFocus={(e) => e.currentTarget.style.borderColor = '#768870'}
+                  onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(209, 213, 219, 1)'}
                 />
               </div>
 
@@ -164,7 +187,18 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-ink text-paper font-serif uppercase tracking-[0.2em] text-xs sm:text-sm py-2.5 sm:py-3 md:py-4 rounded-sm hover:bg-gold hover:shadow-xl transition-all duration-300 shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 sm:gap-2"
+                  className="w-full font-serif uppercase tracking-[0.2em] text-xs sm:text-sm py-2.5 sm:py-3 md:py-4 rounded-sm hover:shadow-xl transition-all duration-300 shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 sm:gap-2"
+                  style={{ backgroundColor: '#768870', color: '#F5F7EC' }}
+                  onMouseEnter={(e) => {
+                    if (!e.currentTarget.disabled) {
+                      e.currentTarget.style.backgroundColor = 'rgba(118, 136, 112, 0.9)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!e.currentTarget.disabled) {
+                      e.currentTarget.style.backgroundColor = '#768870';
+                    }
+                  }}
                 >
                   {isSubmitting ? (
                     <>
@@ -186,11 +220,11 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
           </div>
         ) : (
           <div className="text-center py-6 sm:py-8 md:py-10 animate-fade-in-up flex flex-col items-center">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-green-50 rounded-full flex items-center justify-center mb-4 sm:mb-5 md:mb-6 text-green-600 border border-green-100">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 sm:mb-5 md:mb-6 border" style={{ backgroundColor: 'rgba(118, 136, 112, 0.1)', color: '#768870', borderColor: 'rgba(118, 136, 112, 0.2)' }}>
                <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10" />
             </div>
-            <h3 className="font-serif text-xl sm:text-2xl md:text-3xl text-ink mb-3 sm:mb-4 md:mb-6">RSVP Sent!</h3>
-            <div className="font-body text-sm sm:text-base md:text-xl text-gray-600 space-y-1.5 sm:space-y-2 max-w-xs mx-auto leading-relaxed">
+            <h3 className="font-serif text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4 md:mb-6" style={{ color: '#768870' }}>RSVP Sent!</h3>
+            <div className="font-body text-sm sm:text-base md:text-xl space-y-1.5 sm:space-y-2 max-w-xs mx-auto leading-relaxed" style={{ color: 'rgba(75, 85, 99, 1)' }}>
               <p>
                 Your attendance will be reported and be reflected to our guestbook.
               </p>
@@ -200,7 +234,10 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
             </div>
             <button 
               onClick={handleClose}
-              className="mt-6 sm:mt-8 md:mt-10 text-gold font-serif uppercase tracking-widest text-[10px] sm:text-xs border-b border-transparent hover:border-gold transition-all"
+              className="mt-6 sm:mt-8 md:mt-10 font-serif uppercase tracking-widest text-[10px] sm:text-xs border-b border-transparent transition-all"
+              style={{ color: '#768870' }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#768870'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = 'transparent'}
             >
               Close Window
             </button>

@@ -7,27 +7,27 @@
     <!-- Open Graph / Facebook / Messenger -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://christian-and-geneva-save-the-date.vercel.app/" />
-    <meta property="og:title" content="Christian & Geneva | March 2027" />
-    <meta property="og:description" content="Celebrate the union of Christian & Geneva on March 2027. Discover their story, RSVP, and find important details for the ceremony and reception." />
+    <meta property="og:title" content="Ltryl & Noenyl | May 18, 2026" />
+    <meta property="og:description" content="Celebrate the union of Ltryl & Noenyl on May 18, 2026, Monday. Discover their story, RSVP, and find important details for the ceremony and reception." />
     <meta property="og:image" content="https://christian-and-geneva-save-the-date.vercel.app/image/linkPreview.jpg" />
     <meta property="og:image:secure_url" content="https://christian-and-geneva-save-the-date.vercel.app/image/linkPreview.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Christian & Geneva Wedding Invitation - March 2027" />
-    <meta property="og:site_name" content="Christian & Geneva Wedding" />
+    <meta property="og:image:alt" content="Ltryl & Noenyl Wedding Invitation - May 18, 2026" />
+    <meta property="og:site_name" content="Ltryl & Noenyl Wedding" />
     <meta property="og:locale" content="en_PH" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Christian & Geneva Wedding Invitation" />
-    <meta name="twitter:description" content="You're invited to the wedding of Christian & Geneva on March 2027. RSVP, explore their story, and get all the details for the big day!" />
+    <meta name="twitter:title" content="Ltryl & Noenyl Wedding Invitation" />
+    <meta name="twitter:description" content="You're invited to the wedding of Ltryl & Noenyl on May 18, 2026, Monday. RSVP, explore their story, and get all the details for the big day!" />
     <meta name="twitter:image" content="https://christian-and-geneva-save-the-date.vercel.app/image/linkPreview.jpg" />
     
     <!-- Basic Meta -->
-    <meta name="description" content="Celebrate the wedding of Christian and Geneva on March 2027 at Palawan, Philippines. RSVP, explore their story, and find everything you need to join the celebration." />
+    <meta name="description" content="Celebrate the wedding of Ltryl and Noenyl on May 18, 2026, Monday at Farm Hills Garden, Silang, Cavite. RSVP, explore their story, and find everything you need to join the celebration." />
     
-    <title>Save the Date | Christian & Geneva</title>
+    <title>Save the Date | Ltryl & Noenyl</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts matching the aesthetic: 
          - Prata (Elegant Serif for titles)
@@ -37,6 +37,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Pinyon+Script&family=Prata&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     
     <script>
       tailwind.config = {
@@ -46,6 +49,7 @@
               serif: ['"Prata"', 'serif'],
               script: ['"Pinyon Script"', 'cursive'],
               body: ['"Cormorant Garamond"', 'serif'],
+              'great-vibes': ['"Great Vibes"', 'cursive'],
             },
             colors: {
               paper: '#Fdfcf8',
@@ -59,6 +63,7 @@
             animation: {
               'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
               'draw-line': 'draw 4s linear forwards',
+              'spin-slow': 'spin 20s linear infinite',
             },
             keyframes: {
               fadeInUp: {
@@ -68,6 +73,10 @@
               draw: {
                 '0%': { strokeDashoffset: '1000' },
                 '100%': { strokeDashoffset: '0' },
+              },
+              spin: {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
               }
             }
           }
