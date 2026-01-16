@@ -11,7 +11,7 @@ import { InvitationDetails } from './types';
 
 const details: InvitationDetails = {
   groom: "Ltryl",
-  bride: "Noenyl",
+  bride: "Bryle",
   date: "May 18, 2026\nMonday",
   location: "Farm Hills Garden, Silang, Cavite",
   rsvpContact: "0426572257 | 0491174764"

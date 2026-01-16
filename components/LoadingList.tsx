@@ -77,8 +77,8 @@ export const LoadingList: React.FC<LoadingListProps> = ({ onComplete }) => {
            */}
           <div className="relative">
             <img 
-              src="/image/monogram.png" 
-              alt="Ltryl & Noenyl Monogram" 
+              src="/image/newmonogram.png" 
+              alt="Ltryl & Bryle Monogram" 
               className="w-48 h-auto md:w-72"
               style={{ 
                 filter: 'brightness(0) saturate(100%) invert(46%) sepia(5%) saturate(1200%) hue-rotate(60deg) brightness(95%) contrast(90%)',
@@ -100,7 +100,7 @@ export const LoadingList: React.FC<LoadingListProps> = ({ onComplete }) => {
           <h1 className="font-great-vibes text-6xl md:text-8xl leading-none drop-shadow-sm" style={{ color: '#768870' }}>
             <span>Ltryl</span>
             <span className="text-4xl md:text-6xl mx-2">&</span>
-            <span>Noenyl</span>
+            <span>Bryle</span>
           </h1>
         </div>
 

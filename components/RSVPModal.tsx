@@ -35,7 +35,7 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
-    const guests = formData.get("guests") as string;
+    const guests = "1"; // Default to 1 guest, not modifiable
     const message = formData.get("message") as string;
 
     // Google Forms integration
@@ -138,27 +138,6 @@ const RSVPModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   onFocus={(e) => e.currentTarget.style.borderColor = '#768870'}
                   onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(209, 213, 219, 1)'}
                 />
-              </div>
-
-               <div className="group">
-                <label className="block font-serif text-[10px] sm:text-xs uppercase tracking-widest mb-0.5 sm:mb-1 transition-colors" style={{ color: 'rgba(107, 114, 128, 1)' }}>
-                  <span className="group-focus-within:text-[#768870]">Number of Guests *</span>
-                </label>
-                <div className="relative">
-                  <select 
-                    required
-                    name="guests"
-                    className="w-full bg-stone-50/50 border-b py-1.5 sm:py-2 px-1 font-body text-sm sm:text-base md:text-xl focus:outline-none focus:bg-white transition-all appearance-none cursor-pointer"
-                    style={{ borderColor: 'rgba(209, 213, 219, 1)' }}
-                    onFocus={(e) => e.currentTarget.style.borderColor = '#768870'}
-                    onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(209, 213, 219, 1)'}
-                  >
-                    {[1, 2, 3, 4, 5].map(n => <option key={n} value={n}>{n} {n === 1 ? 'Guest' : 'Guests'}</option>)}
-                  </select>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(156, 163, 175, 1)' }}>
-                     <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                  </div>
-                </div>
               </div>
 
               <div className="group">

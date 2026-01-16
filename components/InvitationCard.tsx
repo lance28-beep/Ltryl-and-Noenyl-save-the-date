@@ -81,9 +81,9 @@ const InvitationCard: React.FC<Props> = ({ details, onRSVP, guestCount, onViewGu
       <div className="flex-grow flex flex-col justify-center items-center w-full z-20 mt-4 sm:mt-0 lg:mt-0">
         
         {/* SAVE THE DATE - Image replacement */}
-        <div className="flex flex-col items-center leading-none scale-90 sm:scale-100 lg:scale-105 xl:scale-110 origin-bottom group cursor-default animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <div className="flex flex-col items-center leading-none scale-90 sm:scale-100 lg:scale-105 xl:scale-110 origin-bottom group cursor-default animate-fade-in-up mt-12 sm:mt-16 lg:mt-20 xl:mt-24 mb-2 sm:mb-3 lg:mb-4 xl:mb-5" style={{ animationDelay: '0.5s' }}>
           <img 
-            src="/image/savethedate.png" 
+            src="/image/savethedateimg.png" 
             alt="Save the Date" 
             className="w-auto h-auto max-w-full object-contain drop-shadow-md transition-all duration-700 ease-out group-hover:drop-shadow-lg"
             style={{ 

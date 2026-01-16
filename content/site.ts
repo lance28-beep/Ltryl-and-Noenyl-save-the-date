@@ -1,9 +1,9 @@
 export const siteConfig = {
   couple: {
     groomNickname: "Ltryl",
-    brideNickname: "Noenyl",
+    brideNickname: "Bryle",
     groomFullName: "Ltryl Benitez",
-    brideFullName: "Noenyl Bryle Gonzaga",
+    brideFullName: "Bryle Bryle Gonzaga",
   },
   wedding: {
     date: "May 18, 2026\nMonday",

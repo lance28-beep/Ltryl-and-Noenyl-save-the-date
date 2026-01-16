@@ -103,7 +103,7 @@ const SpecialMessage: React.FC<SpecialMessageProps> = ({ visible, onClose, onRSV
               {/* Monogram Image */}
               <div className="mb-6 md:mb-8">
                 <img 
-                  src="/image/monogram.png" 
+                  src="/image/newmonogram.png" 
                   alt="Monogram Crest" 
                   className="w-40 md:w-64 h-auto drop-shadow-md transition-all duration-700 ease-out"
                   style={{ 
@@ -183,7 +183,7 @@ const SpecialMessage: React.FC<SpecialMessageProps> = ({ visible, onClose, onRSV
                     <div className="font-great-vibes text-5xl md:text-6xl mt-1 md:mt-2 flex items-center gap-2 md:gap-3" style={{ color: '#768870' }}>
                       <span>Ltryl</span>
                       <span className="text-3xl md:text-4xl">&</span>
-                      <span>Noenyl</span>
+                      <span>Bryle</span>
                     </div>
                  </div>
                </div>
@@ -224,7 +224,7 @@ const SpecialMessage: React.FC<SpecialMessageProps> = ({ visible, onClose, onRSV
                 </button>
 
                 {/* Guest Counter */}
-                {guestCount !== null && (
+                {/* {guestCount !== null && (
                   <button
                     onClick={onViewGuestBook}
                     className="flex items-center gap-2 lg:gap-3 text-sm sm:text-base lg:text-lg xl:text-xl group/counter rounded px-3 py-2 lg:px-4 lg:py-3 transition-all duration-300 cursor-pointer"
@@ -244,7 +244,7 @@ const SpecialMessage: React.FC<SpecialMessageProps> = ({ visible, onClose, onRSV
                       {guestCount} {guestCount === 1 ? 'Guest' : 'Guests'} Confirmed
                     </span>
                   </button>
-                )}
+                )} */}
               </div>
                </div>
             </FadeIn>

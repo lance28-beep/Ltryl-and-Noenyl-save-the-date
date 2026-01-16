@@ -221,14 +221,11 @@ const GuestBookModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                     
                                     {/* Content */}
                                     <div className="flex-grow min-w-0 flex-1">
-                                        {/* Name and Guest Count Row */}
+                                        {/* Name Row */}
                                         <div className="flex items-center justify-between gap-2 mb-1">
                                             <h4 className="font-serif text-sm sm:text-base font-semibold truncate transition-colors duration-300" style={{ color: '#768870' }}>
                                                 {guest.name}
                                             </h4>
-                                            <span className="flex-shrink-0 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full border transition-all duration-300 group-hover/card:scale-105" style={{ backgroundColor: 'rgba(118, 136, 112, 0.1)', color: '#768870', borderColor: 'rgba(118, 136, 112, 0.2)' }}>
-                                                {guest.guests}
-                                            </span>
                                         </div>
                                         
                                         {/* Date and Guest Number */}
